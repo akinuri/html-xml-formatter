@@ -27,6 +27,12 @@
         class="px-2 py-1 border rounded shadow bg-white min-h-[10rem] max-h-[40rem] overflow-y-auto language-html"
         id="output-box"
         ><span class="opacity-50">output</span></pre>
+    <button
+        id="copy-btn"
+        class="px-2 py-1 bg-slate-200 hover:bg-slate-300/50 active:bg-slate-300/60 rounded shadow-sm"
+        >
+        Copy
+    </button>
 </div>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs.min.css">
@@ -43,6 +49,7 @@
     let inputBox = document.querySelector("#input-box");
     let outputBox = document.querySelector("#output-box");
     let parseBtn = document.querySelector("#parse-btn");
+    let copyBtn = document.querySelector("#copy-btn");
     
     parseBtn.addEventListener("click", () => {
         const xmlStr = inputBox.value;
@@ -55,6 +62,10 @@
         code.textContent = formattedXML;
         outputBox.innerHTML = code.outerHTML;
         hljs.highlightAll();
+    });
+    
+    copyBtn.addEventListener("click", () => {
+        navigator.clipboard.writeText(outputBox.innerText);
     });
 </script>
 
