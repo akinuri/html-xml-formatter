@@ -1,9 +1,12 @@
-function formatXML(xmlString) {
+function parseXML(xmlString) {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlString, 'application/xml');
     const root = xmlDoc.documentElement;
-    const formattedXML = formatAttributes(root).trim();
-    return formattedXML;
+    return root;
+}
+
+function formatXML(element) {
+    return formatAttributes(element).trim();
 }
 
 function formatAttributes(element, level = 0) {

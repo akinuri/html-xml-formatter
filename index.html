@@ -52,11 +52,8 @@
     let copyBtn = document.querySelector("#copy-btn");
     
     formatBtn.addEventListener("click", () => {
-        const xmlStr = inputBox.value;
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(xmlStr, "application/xml");
-        const root = doc.documentElement;
-        const formattedXML = formatAttributes(root).trim();
+        let parsedXML = parseXML(inputBox.value);
+        let formattedXML = formatXML(parsedXML);
         let code = document.createElement("code");
         code.classList.add("language-xml");
         code.textContent = formattedXML;
