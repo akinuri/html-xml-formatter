@@ -18,10 +18,10 @@
         rows="5"
         ></textarea>
     <button
-        id="parse-btn"
+        id="format-btn"
         class="px-2 py-1 bg-slate-300 hover:bg-slate-400/50 active:bg-slate-400/60 rounded shadow-sm"
         >
-        Parse
+        Format
     </button>
     <pre
         class="px-2 py-1 border rounded shadow bg-white min-h-[10rem] max-h-[40rem] overflow-y-auto language-html"
@@ -48,10 +48,10 @@
 <script>
     let inputBox = document.querySelector("#input-box");
     let outputBox = document.querySelector("#output-box");
-    let parseBtn = document.querySelector("#parse-btn");
+    let formatBtn = document.querySelector("#format-btn");
     let copyBtn = document.querySelector("#copy-btn");
     
-    parseBtn.addEventListener("click", () => {
+    formatBtn.addEventListener("click", () => {
         const xmlStr = inputBox.value;
         const parser = new DOMParser();
         const doc = parser.parseFromString(xmlStr, "application/xml");
